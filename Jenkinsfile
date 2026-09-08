@@ -52,7 +52,7 @@ pipeline {
                         throw 'Le fichier application.txt est vide.'
                     }
 
-                    if ($content -notmatch 'Application de démonstration Jenkins') {
+                    if ($content -notmatch 'Application de Jenkins') {
                         throw 'Le contenu attendu est absent.'
                     }
 
