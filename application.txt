@@ -1,2 +1,2 @@
-Application de démonstration Jenkins
+Application de Jenkins
 Version : 1.0.0
