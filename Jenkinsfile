@@ -34,7 +34,7 @@ pipeline {
                         Write-Error 'Le fichier application.txt est introuvable.'
                     }
 
-                    Copy-Item 'application.txt' 'build-output\application.txt' -Force
+                    Copy-Item 'application.txt' 'build-output/application.txt' -Force
                     Write-Host 'Fichier copié dans build-output.'
                 '''
             }
