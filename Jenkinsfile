@@ -26,17 +26,16 @@ pipeline {
                 powershell '''
                     $ErrorActionPreference = 'Stop'
 
-                    Write-Host "Préparation du build $env:BUILD_NUMBER"
-                    New-Item -Path $env:BUILD_DIR -ItemType Directory -Force | Out-Null
-                    New-Item -Path $env:PACKAGE_DIR -ItemType Directory -Force | Out-Null
+                    Write-Host 'Préparation du projet'
+                    New-Item -ItemType Directory -Path 'build-output' -Force | Out-Null
+                    New-Item -ItemType Directory -Path 'package' -Force | Out-Null
 
-                    $source = Join-Path $env:WORKSPACE 'application.txt'
-                    if (-not (Test-Path -Path $source -PathType Leaf)) {
-                        throw "Le fichier source est absent : $source"
+                    if (-not (Test-Path 'application.txt')) {
+                        Write-Error 'Le fichier application.txt est introuvable.'
                     }
 
-                    Copy-Item -Path $source -Destination $env:BUILD_DIR -Force
-                    Write-Host "Fichier copié vers $env:BUILD_DIR"
+                    Copy-Item 'application.txt' 'build-output\application.txt' -Force
+                    Write-Host 'Fichier copié dans build-output.'
                 '''
             }
         }
