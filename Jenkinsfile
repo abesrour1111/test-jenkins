@@ -53,7 +53,7 @@ pipeline {
                     }
 
                     if ($content -notmatch 'Application de démonstration Jenkins') {
-                        throw 'Le contenu attendu n’a pas été trouvé.'
+                        throw 'Le contenu attendu est absent.'
                     }
 
                     Write-Host 'Validation du contenu réussie.'
